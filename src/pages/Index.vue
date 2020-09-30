@@ -126,7 +126,7 @@
     <!-- REGISTER BEGIN -->
     <div id="register" class="w-full min-h-screen flex flex-col justify-center items-center bg-gray-800">
       <div class="self-center text-center w-full xl:w-1/3 px-4 sm:px:0">
-        <form class="form bg-white p-6 my-10 relative" method="post" v-on:submit.prevent="handleSubmit"
+        <form name="PrideForm" class="form bg-white p-6 my-10 relative" method="post"
           action="/success/" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden>
