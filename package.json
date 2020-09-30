@@ -1,0 +1,19 @@
+{
+  "name": "PrideConcrete",
+  "version": "0.2.2",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/plugin-google-analytics": "^0.1.1",
+    "gridsome": "^0.7.19",
+    "gridsome-plugin-tailwindcss": "^3.0.1"
+  },
+  "devDependencies": {
+    "netlify-plugin-gridsome-cache": "^1.0.2"
+  }
+}
