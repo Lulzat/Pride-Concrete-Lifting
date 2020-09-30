@@ -165,7 +165,7 @@
             </p>
           </div>
           <p>
-            <label>Your Phone Number: <input type="email" name="email" class="border p-2  w-1/2 font-sans" /></label>
+            <label>Your Phone Number: <input type="tel" name="telephone" class="border p-2  w-1/2 font-sans" /></label>
           </p>
           <p>
             <label>Message: <textarea name="message" class="border p-2 mt-3 w-full font-sans"></textarea></label>
