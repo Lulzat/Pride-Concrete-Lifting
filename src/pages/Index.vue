@@ -85,7 +85,7 @@
       <!--<div class="flex flex-row w-full justify-center">
         <a class="px-10 py-2 text-gray-200 bg-pride-red shadow-md text-lg hover:bg-gray-800 hover:border-red"
           href="#features">See How it Works</a>-->
-      </div>
+    </div>
     </div>
     <!-- ABOUT END -->
 
@@ -126,7 +126,7 @@
     <!-- REGISTER BEGIN -->
     <div id="register" class="w-full min-h-screen flex flex-col justify-center items-center bg-gray-800">
       <div class="self-center text-center w-full xl:w-1/3 px-4 sm:px:0">
-           <form class="form bg-white p-6 my-10 relative"
+        <!-- <form class="form bg-white p-6 my-10 relative"
           name="PrideForm"
           id="myForm"
           method="post"
@@ -151,7 +151,32 @@
             class="border p-2 mt-3 w-full font-sans" v-model="formData.userMessage"></textarea>
           <input type="submit" value="Submit"
             class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-semibold p-3 font-sans">
+        </form>-->
+
+        <form name="PrideForm" method="POST" data-netlify="true" class="form bg-white p-6 my-10 relative">
+          <h3 class="text-2xl text-gray-900 font-semibold font-sans">Get in Contact</h3>
+          <p class="text-gray-600 font-sans">And We'll Handle The Rest</p>
+          <div class="flex space-x-5 mt-3">
+            <p>
+              <label>Your Name: <input type="text" name="name" class="border p-2  w-1/2 font-sans" /></label>
+            </p>
+            <p>
+              <label>Your Email: <input type="email" name="email" class="border p-2  w-1/2 font-sans" /></label>
+            </p>
+          </div>
+          <p>
+            <label>Your Phone Number: <input type="email" name="email" class="border p-2  w-1/2 font-sans" /></label>
+          </p>
+          <p>
+            <label>Message: <textarea name="message" class="border p-2 mt-3 w-full font-sans"></textarea></label>
+          </p>
+          <p>
+            <button type="submit"
+              class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-semibold p-3 font-sans">Send</button>
+          </p>
         </form>
+
+
       </div>
     </div>
     <!-- REGISTER END -->
@@ -181,16 +206,16 @@ query {
 import axios from "axios";
 
 export default {
- data() {
-        return {
-            formData: {
-                userName: null,
-                userPhone: null,
-                userEmail: null,
-                userMessage: null,
-            },
-        }
-    },
+  data() {
+    return {
+      formData: {
+        userName: null,
+        userPhone: null,
+        userEmail: null,
+        userMessage: null,
+      },
+    }
+  },
   metaInfo: {
     title: "Pride Concrete Lifting | Lift & Stabilize"
   },
@@ -203,39 +228,41 @@ export default {
       nav.classList.toggle('flex');
       nav.classList.toggle('hidden');
     },
-    encode(data) {  
-            const formData = new FormData();
-            
-            for (const key of Object.keys(data)) {
-                formData.append(key, data[key]);
-            }
-            
-            return formData;
-        },
+    encode(data) {
+      const formData = new FormData();
 
-        handleFormSubmit(e) {
-            const axiosConfig = {
-                header: { "Content-Type": "application/x-www-form-urlencoded" }
-            };
+      for (const key of Object.keys(data)) {
+        formData.append(key, data[key]);
+      }
 
-            axios.post(
-                location.href, 
-                this.encode({
-                    'form-name': e.target.getAttribute("name"),
-                    ...this.formData,
-                }),
-                axiosConfig
-            )
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
-            .then(document.getElementById("myForm").innerHTML = `
+      return formData;
+    },
+
+    handleFormSubmit(e) {
+      const axiosConfig = {
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      };
+
+      axios.post(
+          location.href,
+          this.encode({
+            'form-name': e.target.getAttribute("name"),
+            ...this.formData,
+          }),
+          axiosConfig
+        )
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+        .then(document.getElementById("myForm").innerHTML = `
             <div>
                 Contact Form Successfully Submitted!
             </div>
             `)
-        }
+    }
   }
-  };
+};
 </script>
 
 <style>
