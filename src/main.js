@@ -2,21 +2,16 @@ import Vue from 'vue'
 import Landing from './views/Landing.vue'
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-//import '@fortawesome/fontawesome-free-webfonts';
-Vue.config.productionTip = false
 
-const routes = {
-  '/landing': Landing
+export default function (Vue, { router, head, isClient }) {
+  // Set default layout as a global component
+  Vue.component('Layout', Landing)
+
+
+  head.link.push({
+    rel: 'shortcut icon',
+    type: 'image/png',
+    href: 'favicon.png'
+  })
+
 }
-
-new Vue({
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      return routes[this.currentRoute] || Landing
-    }
-  },
-  render (h) { return h(this.ViewComponent) },
-}).$mount('#app')
