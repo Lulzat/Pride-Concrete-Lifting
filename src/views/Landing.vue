@@ -257,7 +257,8 @@
           <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-                <form name="PrideForm" method="POST" data-netlify="true" class="flex-auto p-5 lg:p-10">
+                <form name="PrideForm" method="POST" @submit="checkForm" data-netlify="true" class="flex-auto p-5 lg:p-10">
+                  <br/>
                   <h4 class="text-2xl font-semibold">Let's Do This</h4>
                   <p class="leading-relaxed mt-1 mb-4 text-gray-600">
                     Send us a quick message, and let us know what we can help you with.
@@ -276,17 +277,23 @@
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">Email</label><input
-                      type="email" name="email"
+                      type="email" name="email" v-model="email"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Email" style="transition: all 0.15s ease 0s;" />
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                      for="message">Message</label><textarea name="message" rows="4" cols="80"
+                      for="message">Message</label><textarea name="message" v-model="message" rows="4" cols="80"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Type a message..."></textarea>
                   </div>
                   <div class="text-center mt-6">
+                    <p class="p-3 text-pride-red" v-if="errors.length">
+                      <b>Please correct the following error(s):</b>
+                      <ul>
+                        <li v-for="error in errors">{{ error }}</li>
+                      </ul>
+                    </p>
                     <button
                       class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                       type="submit" style="transition: all 0.15s ease 0s;">
@@ -311,6 +318,31 @@ export default {
   components: {
     NavbarComponent,
     FooterComponent
+  },
+  data() {
+    return {
+      errors: [],
+      email: null,
+      message: null
+    }
+  },
+  methods:{
+    checkForm: function (e) {
+      if (this.name && this.age) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.email) {
+        this.errors.push('Email required.');
+      }
+      if (!this.message) {
+        this.errors.push('Message required.');
+      }
+
+      e.preventDefault();
+    }
   }
 }
 </script>
