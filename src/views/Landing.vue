@@ -366,6 +366,7 @@ export default {
                 Thank you! I received your submission.
             </div>
             `)
+           e.preventDefault();
       }
 
     this.errors = [];
