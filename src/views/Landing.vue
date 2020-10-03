@@ -344,6 +344,7 @@ export default {
     checkForm: function (e) {
       if (this.formData.email && this.formData.message) {
         this.success = true;
+        return true;
       }
 
       this.errors = [];
