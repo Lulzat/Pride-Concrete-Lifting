@@ -257,7 +257,7 @@
           <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-                <form name="PrideForm" method="POST" @submit.prevent="checkForm" data-netlify="true" class="flex-auto p-5 lg:p-10" id="myForm">
+                <form name="PrideForm" @submit.prevent="checkForm" data-netlify="true" class="flex-auto p-5 lg:p-10" id="myForm">
                   <br/>
                   <h4 class="text-2xl font-semibold">Let's Do This</h4>
                   <p class="leading-relaxed mt-1 mb-4 text-gray-600">
