@@ -263,7 +263,7 @@
                 <p class="leading-relaxed mt-1 mb-4 text-gray-600">
                   Send us a quick message, and let us know what we can help you with.
                 </p>
-                <form name="PrideForm" method="POST" v-on:submit.prevent="checkForm" data-netlify="true" data-netlify-honeypot="bot-field" class="flex-auto p-5 lg:p-10">
+                <form name="PrideForm" method="POST" @submit="checkForm()" data-netlify="true" data-netlify-honeypot="bot-field" class="flex-auto p-5 lg:p-10">
                   <p hidden>
                     <label>
                       Don’t fill this out: <input name="bot-field" />
