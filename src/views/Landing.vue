@@ -257,38 +257,45 @@
           <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-                <form name="PrideForm" method="POST" @submit="checkForm" data-netlify="true" class="flex-auto p-5 lg:p-10">
-                  <br/>
+                <form name="PrideForm" method="POST" v-on:submit.prevent="checkForm" action="/success/"
+                  data-netlify="true" data-netlify-honeypot="bot-field" class="flex-auto p-5 lg:p-10">
+                  <br />
                   <h4 class="text-2xl font-semibold">Let's Do This</h4>
                   <p class="leading-relaxed mt-1 mb-4 text-gray-600">
                     Send us a quick message, and let us know what we can help you with.
                   </p>
+                  <p hidden>
+                    <label>
+                      Don’t fill this out: <input name="bot-field" />
+                    </label>
+                  </p>
                   <div class="relative w-full mb-3 mt-8">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                      for="full-name">Name</label><input type="text" name="name"
+                      for="full-name">Name</label><input type="text" name="name" v-model="formData.name"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Full Name" style="transition: all 0.15s ease 0s;" />
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                      for="email">Telephone</label><input type="tel" name="telephone"
+                      for="email">Telephone</label><input type="tel" name="telephone" v-model="formData.telephone"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Email" style="transition: all 0.15s ease 0s;" />
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">Email</label><input
-                      type="email" name="email" v-model="email"
+                      type="email" name="email" v-model="formData.email"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Email" style="transition: all 0.15s ease 0s;" />
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                      for="message">Message</label><textarea name="message" v-model="message" rows="4" cols="80"
+                      for="message">Message</label><textarea name="message" v-model="formData.message" rows="4"
+                      cols="80"
                       class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                       placeholder="Type a message..."></textarea>
                   </div>
                   <div class="text-center mt-6">
-                    <p class="p-3 text-pride-red" v-if="errors.length">
+                    <p v-if="errors.length" class="p-3 text-pride-red">
                       <b>Please correct the following error(s):</b>
                       <ul>
                         <li v-for="error in errors">{{ error }}</li>
@@ -321,27 +328,45 @@ export default {
   },
   data() {
     return {
-      errors: [],
-      email: null,
-      message: null
+      formData: {},
+      errors: []
     }
   },
-  methods:{
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
+    },
     checkForm: function (e) {
-      if (this.email && this.message) {
-        return true;
+      if (this.formData.email && this.formData.message) {
+        handleSubmit(e)
       }
 
       this.errors = [];
 
-      if (!this.email) {
+      if (!this.formData.email) {
         this.errors.push('Email required.');
-        e.preventDefault();
       }
-      if (!this.message) {
+      if (!this.formData.message) {
         this.errors.push('Message required.');
-        e.preventDefault();
       }
+
+      e.preventDefault();
+    },
+    handleSubmit(e) {
+      fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: this.encode({
+            'form-name': e.target.getAttribute('name'),
+            ...this.formData,
+          }),
+        })
+        .then(() => this.$router.push('/success'))
+        .catch(error => alert(error))
     }
   }
 }
