@@ -300,6 +300,9 @@
                         <li v-for="error in errors">{{ error }}</li>
                       </ul>
                     </p>
+                    <p v-if="success==true" class="p-3 text-pride-blue">
+                      Contact Form Submitted!
+                    </p>
                     <button
                       class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                       type="submit" style="transition: all 0.15s ease 0s;">
@@ -328,7 +331,8 @@ export default {
   data() {
     return {
       formData: {},
-      errors: []
+      errors: [],
+      success: false
     }
   },
   methods: {
@@ -339,7 +343,7 @@ export default {
     },
     checkForm: function (e) {
       if (this.formData.email && this.formData.message) {
-        handleSubmit(e)
+        this.success = true;
       }
 
       this.errors = [];
@@ -352,20 +356,6 @@ export default {
       }
 
       e.preventDefault();
-    },
-    handleSubmit(e) {
-      fetch('/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: this.encode({
-            'form-name': e.target.getAttribute('name'),
-            ...this.formData,
-          }),
-        })
-        .then(() => this.$router.push('/success'))
-        .catch(error => alert(error))
     }
   }
 }
