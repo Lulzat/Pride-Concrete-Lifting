@@ -336,12 +336,12 @@ export default {
 
       if (!this.email) {
         this.errors.push('Email required.');
+        e.preventDefault();
       }
       if (!this.message) {
         this.errors.push('Message required.');
+        e.preventDefault();
       }
-
-      e.preventDefault();
     }
   }
 }
