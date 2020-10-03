@@ -328,7 +328,7 @@ export default {
   },
   methods:{
     checkForm: function (e) {
-      if (this.name && this.age) {
+      if (this.email && this.message) {
         return true;
       }
 
