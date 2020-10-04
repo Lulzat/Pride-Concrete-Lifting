@@ -337,7 +337,7 @@ export default {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
         "name": "PRIDE CONCRETE LIFTING",
-        "email": "contact@prideconcretelifting.com"
+        "email": "contact@prideconcretelifting.com",
         "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection."
       }
     },
