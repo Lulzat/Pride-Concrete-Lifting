@@ -338,10 +338,7 @@ export default {
         "@type": "LocalBusiness",
         "name": "PRIDE CONCRETE LIFTING",
         "email": "contact@prideconcretelifting.com",
-        "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam
-        injection.
-        "
-
+        "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection."
       }
     }
   },
@@ -382,10 +379,10 @@ export default {
           .then(data => console.log(data))
           .catch(error => console.log(error))
           .then(document.getElementById("myForm").innerHTML = `
-<div>
-  Contact Form Submitted! Thank you!
-</div>
-`)
+            <div>
+              Contact Form Submitted! Thank you!
+            </div>
+            `)
         e.preventDefault();
       }
 
