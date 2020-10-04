@@ -339,62 +339,64 @@ export default {
         "name": "PRIDE CONCRETE LIFTING",
         "email": "contact@prideconcretelifting.com",
         "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection."
+
       }
+    }
+  },
+  metaInfo() {
+    return {
+      script: [{
+        innerHTML: JSON.stringify(this.jsonld),
+        type: 'application/ld+json'
+      }]
     },
-    metaInfo() {
-      return {
-        script: [{
-          innerHTML: JSON.stringify(this.jsonld),
-          type: 'application/ld+json'
-        }]
+    methods: {
+      encode(data) {
+        const formData = new FormData();
+
+        for (const key of Object.keys(data)) {
+          formData.append(key, data[key]);
+        }
+
+        return formData;
       },
-      methods: {
-        encode(data) {
-          const formData = new FormData();
+      checkForm: function (e) {
+        if (this.formData.email && this.formData.message) {
+          const axiosConfig = {
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          };
 
-          for (const key of Object.keys(data)) {
-            formData.append(key, data[key]);
-          }
-
-          return formData;
-        },
-        checkForm: function (e) {
-          if (this.formData.email && this.formData.message) {
-            const axiosConfig = {
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            };
-
-            axios.post(
-                location.href,
-                this.encode({
-                  'form-name': e.target.getAttribute("name"),
-                  ...this.formData,
-                }),
-                axiosConfig
-              )
-              .then(data => console.log(data))
-              .catch(error => console.log(error))
-              .then(document.getElementById("myForm").innerHTML = `
+          axios.post(
+              location.href,
+              this.encode({
+                'form-name': e.target.getAttribute("name"),
+                ...this.formData,
+              }),
+              axiosConfig
+            )
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
+            .then(document.getElementById("myForm").innerHTML = `
             <div>
               Contact Form Submitted! Thank you!
             </div>
             `)
-            e.preventDefault();
-          }
-
-          this.errors = [];
-
-          if (!this.formData.email) {
-            this.errors.push('Email required.');
-          }
-          if (!this.formData.message) {
-            this.errors.push('Message required.');
-          }
-
           e.preventDefault();
         }
+
+        this.errors = [];
+
+        if (!this.formData.email) {
+          this.errors.push('Email required.');
+        }
+        if (!this.formData.message) {
+          this.errors.push('Message required.');
+        }
+
+        e.preventDefault();
       }
     }
+  }
 </script>
