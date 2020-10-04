@@ -263,7 +263,7 @@
                       Let's Do This
                     </h4>
                     <p class="leading-relaxed mt-1 mb-4 text-gray-600">
-                      Send us a quick message, and let us know what we can help you with.
+                      Send us a quick message, and let us know what we can help you with! Or email us at: contact@prideconcretelifting.com to get a free estimate scheduled!
                     </p>
                   </div>
                   <div class="relative w-full mb-3 mt-8">
@@ -332,57 +332,69 @@ export default {
         email: null,
         message: null
       },
-      errors: []
-    }
-  },
-
-  methods: {
-    encode(data) {
-      const formData = new FormData();
-
-      for (const key of Object.keys(data)) {
-        formData.append(key, data[key]);
+      errors: [],
+      jsonld: {
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
+        "name": "PRIDE CONCRETE LIFTING",
+        "email": "contact@prideconcretelifting.com"
+        "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection."
       }
-
-      return formData;
     },
-    checkForm: function (e) {
-      if (this.formData.email && this.formData.message) {
-        const axiosConfig = {
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        };
+    metaInfo() {
+      return {
+        script: [{
+          innerHTML: JSON.stringify(this.jsonld),
+          type: 'application/ld+json'
+        }]
+      },
+      methods: {
+        encode(data) {
+          const formData = new FormData();
 
-        axios.post(
-            location.href,
-            this.encode({
-              'form-name': e.target.getAttribute("name"),
-              ...this.formData,
-            }),
-            axiosConfig
-          )
-          .then(data => console.log(data))
-          .catch(error => console.log(error))
-          .then(document.getElementById("myForm").innerHTML = `
+          for (const key of Object.keys(data)) {
+            formData.append(key, data[key]);
+          }
+
+          return formData;
+        },
+        checkForm: function (e) {
+          if (this.formData.email && this.formData.message) {
+            const axiosConfig = {
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+            };
+
+            axios.post(
+                location.href,
+                this.encode({
+                  'form-name': e.target.getAttribute("name"),
+                  ...this.formData,
+                }),
+                axiosConfig
+              )
+              .then(data => console.log(data))
+              .catch(error => console.log(error))
+              .then(document.getElementById("myForm").innerHTML = `
             <div>
               Contact Form Submitted! Thank you!
             </div>
             `)
-           e.preventDefault();
+            e.preventDefault();
+          }
+
+          this.errors = [];
+
+          if (!this.formData.email) {
+            this.errors.push('Email required.');
+          }
+          if (!this.formData.message) {
+            this.errors.push('Message required.');
+          }
+
+          e.preventDefault();
+        }
       }
-
-    this.errors = [];
-
-    if (!this.formData.email) {
-      this.errors.push('Email required.');
     }
-    if (!this.formData.message) {
-      this.errors.push('Message required.');
-    }
-
-    e.preventDefault();
-  }
-}
-}
 </script>

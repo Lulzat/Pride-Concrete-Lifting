@@ -10,6 +10,7 @@
           type="button" style="transition: all 0.15s ease 0s;">
           <a href="#contact"><i class="fas fa-envelope"></i> CONTACT US</a>
         </button>
+        <h2 class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">contact@prideconcretelifting.com</h2>
       </div>
     </div>
   </nav>
