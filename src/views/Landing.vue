@@ -129,7 +129,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </section>
       <section class="relative py-20">
@@ -286,6 +285,7 @@
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                 <form name="PrideForm" id="myForm" method="post" data-netlify="true" enctype="application/x-www-form-urlencoded" @submit.prevent="checkForm" class="flex-auto p-5 lg:p-10">
+                  <input type="hidden" name="form-name" value="PrideForm"/>
                   <div class="m-auto p-2">
                     <h4 class="text-2xl font-semibold">
                       Let's Do This
