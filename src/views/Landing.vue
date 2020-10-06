@@ -5,26 +5,26 @@
       <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
         <div class="absolute top-0 w-full h-full bg-center bg-cover"
           style="background-image: url('img/hero-image.jpg');">
-          <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+          <span id="blackOverlay" class="w-full h-full absolute opacity-25 bg-black"></span>
         </div>
         <div class="container relative mx-auto">
           <div class="items-center flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
               <div>
-                <h1 class="text-white font-semibold text-5xl">
+                <h1 class="text-white font-bold text-5xl">
                   PRIDE
                   <span class="content__container block text-pride-red">
                     <ul class="content__container__list">
                       <li class="content__container__list__item xl:pl-3">CONCRETE</li>
                       <li class="content__container__list__item xl:pl-3">ASPHALT</li>
-                      <li class="content__container__list__item xl:pl-3">HIGHWAY</li>
                       <li class="content__container__list__item xl:pl-3">DRIVEWAY</li>
+                      <li class="content__container__list__item xl:pl-3">POOL DECK</li>
+                      <li class="content__container__list__item xl:pl-3">HIGHWAY</li>
+                      <li class="content__container__list__item xl:pl-3">WAREHOUSE</li>
                       <li class="content__container__list__item xl:pl-3">SIDEWALK</li>
-                      <li class="content__container__list__item xl:pl-3">FOUNDATION</li>
-                      <li class="content__container__list__item xl:pl-3">VOID FILL</li>
                     </ul>
                   </span> LIFTING </h1>
-                <p class="mt-4 text-lg text-gray-300">
+                <p class="mt-4 text-lg font-bold text-gray-300">
                   Over 50 years of combined experience lifting concrete and asphalt. Whether you need a road, sidewalk,
                   driveway, or any other concrete foundation raised - Pride Concrete Lifting will get the job done
                 </p>
@@ -101,7 +101,35 @@
                 clean, and quality results.
               </p>
             </div>
+            <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pride-red"
+              >
+                <img
+                  alt="Concrete Lifting Jobs Big and Small"
+                  src="../assets/img/residential-gallery-image.jpg"
+                  class="w-full align-middle rounded-t-lg"
+                />
+                <blockquote class="relative p-8 mb-4">
+                  <svg
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 583 95"
+                    class="absolute left-0 w-full block"
+                    style="height: 95px; top: -94px;"
+                  >
+                  </svg>
+                  <h4 class="text-xl font-bold text-white">
+                    Raising Concrete the Right Way
+                  </h4>
+                  <p class="text-md font-light mt-2 text-white">
+                    Our foam lifting methods allow us to work on all projects, big or small. Concrete is everywhere - from your front porch to your pool deck - and over time, the soil underneath can erode away causing your beautiful patio to turn into a tripping hazard. That's where Pride Concrete Lifting comes in, bringing everything back up to level.
+                  </p>
+                </blockquote>
+              </div>
+            </div>
           </div>
+          
         </div>
       </section>
       <section class="relative py-20">
@@ -280,13 +308,13 @@
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">
-                      Email
+                      <span class="text-pride-red">*</span>Email
                     </label>
                     <input type="email" name="email" v-model="formData.email" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Email" style="transition: all 0.15s ease 0s;" />
                   </div>
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="message">
-                      Message
+                      <span class="text-pride-red">*</span>Message
                     </label>
                     <textarea name="message" rows="4" cols="80" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Type a message..." v-model="formData.message"></textarea>
                   </div>
@@ -298,7 +326,7 @@
                       </ul>
                     </p>
                     <button
-                      class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                      class="bg-gray-900 hover:bg-pride-blue text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                       type="submit" name="button" style="transition: all 0.15s ease 0s;">
                       Send Message
                     </button>

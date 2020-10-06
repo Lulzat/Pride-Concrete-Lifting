@@ -1,16 +1,15 @@
 <template>
   <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">  
         <h1 class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">
           PRIDE CONCRETE LIFTING
         </h1>
-        <button
-          class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded-sm shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+        <h3 v-if="!isMobile()" class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">contact@prideconcretelifting.com</h3>
+        <a href="#contact"><button
+          class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded-sm shadow hover:shadow-md hover:bg-pride-blue hover:text-gray-100 outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
           type="button" style="transition: all 0.15s ease 0s;">
-          <a href="#contact"><i class="fas fa-envelope"></i> CONTACT US</a>
-        </button>
-      </div>
+          <i class="fas fa-envelope"></i>CONTACT US
+        </button></a>
     </div>
   </nav>
 </template>
@@ -22,8 +21,15 @@ export default {
     }
   },
   methods: {
-    toggleNavbar: function(){
+    toggleNavbar: function () {
       this.showMenu = !this.showMenu;
+    },
+    isMobile() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
