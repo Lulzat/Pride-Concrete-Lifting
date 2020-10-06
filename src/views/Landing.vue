@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>
-            <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+            <div class="md:pt-6 lg:pt-6 xl:pt-6 w-full md:w-4/12 px-4 text-center">
               <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-sm">
                 <div class="px-4 py-5 flex-auto">
                   <div
@@ -89,7 +89,7 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap items-center mt-32">
+          <div class="flex flex-wrap items-center mt-8">
             <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
               <h3 class="text-3xl mb-2 font-semibold leading-normal">
                 Experience in the Industry. Quality on the Job.
@@ -101,7 +101,7 @@
                 clean, and quality results.
               </p>
             </div>
-            <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+            <div class="w-full md:w-4/12 px-4 mt-8 mr-auto ml-auto">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pride-red"
               >
@@ -281,7 +281,7 @@
         </div>
       </section>
       <section class="relative block py-24 lg:pt-0 bg-gray-900" id="contact">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 mt-8">
           <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
