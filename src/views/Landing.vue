@@ -363,7 +363,7 @@ export default {
       jsonld: {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
-        "image": "https://www.prideconcretelifting.com/..assets/img/pride-lifting-logo.jpg"
+        "image": "https://www.prideconcretelifting.com/img/pride-lifting-logo.jpg",
         "name": "Pride Concrete Lifting",
         "email": "contact@prideconcretelifting.com",
         "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection in Dallas & Fort Worth."
