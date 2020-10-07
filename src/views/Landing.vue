@@ -377,7 +377,7 @@ export default {
         {
           name: "description",
           content: 'Concrete Foam Lifting and Repair in Dallas / Fort Worth - Driveway, Pools, Warehouses, and Other Concrete Leveling by Industry Professionals.'
-        },
+        }],
       script: [{
         innerHTML: JSON.stringify(this.jsonld),
         type: 'application/ld+json'
