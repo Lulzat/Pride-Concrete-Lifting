@@ -11,7 +11,7 @@
           <div class="items-center flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
               <div>
-                <h1 class="text-white font-bold text-5xl">
+                <h3 class="text-white font-bold text-5xl">
                   PRIDE
                   <span class="content__container block text-pride-red">
                     <ul class="content__container__list">
@@ -23,10 +23,9 @@
                       <li class="content__container__list__item xl:pl-3">WAREHOUSE</li>
                       <li class="content__container__list__item xl:pl-3">SIDEWALK</li>
                     </ul>
-                  </span> LIFTING </h1>
+                  </span> LIFTING </h3>
                 <p class="mt-4 text-lg font-bold text-gray-300">
-                  Over 50 years of combined experience lifting concrete and asphalt. Whether you need a road, sidewalk,
-                  driveway, or any other concrete foundation raised - Pride Concrete Lifting will get the job done
+                  Concrete Lifting and Soil Stabilization in the Dallas / Fort Worth Area - With over 50 years of combined experience in the Foam Concrete Lifting Industry, Pride Concrete Lifting is here to help lift you up.
                 </p>
               </div>
             </div>
@@ -52,7 +51,7 @@
                   </div>
                   <h6 class="text-xl font-semibold">Drill</h6>
                   <p class="mt-2 mb-4 text-gray-600">
-                    After assessing the material to be raised, holes are drilled to precise depths to gain access to the
+                    After assessing the material to be raised, a 1/2" or 5/8" hole is drilled to precise depths to gain access to the
                     foundation of the affected area.
                   </p>
                 </div>
@@ -67,7 +66,7 @@
                   </div>
                   <h6 class="text-xl font-semibold">Inject</h6>
                   <p class="mt-2 mb-4 text-gray-600">
-                    A polyurethane foam is then carefully injected into the hole, that expands and lifts the material
+                    A polyurethane foam is then carefully injected into the subgrade, that expands and lifts the material
                     back to proper grade.
                   </p>
                 </div>
@@ -95,7 +94,7 @@
                 Experience in the Industry. Quality on the Job.
               </h3>
               <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                Our team has been in the business of lifting concrete for a long time, with experience on hundreds of
+                Our team has been in the business of lifting for a long time, with experience on hundreds of
                 projects big and small and we take <strong class="text-pride-blue">PRIDE</strong> in the work we do.
                 Through scorching Texas Summers and the chilling wind of Winter we have continued to provide quick,
                 clean, and quality results.
@@ -246,7 +245,7 @@
                 <i class="fas fa-dollar-sign text-xl"></i>
               </div>
               <h6 class="text-xl mt-5 font-semibold text-white">
-                Competive Rates
+                Competitive Rates
               </h6>
               <p class="mt-2 mb-4 text-gray-500">
                 Our team is small, but powerful. This allows us to offer lower rates than other companies for lifting
@@ -364,14 +363,21 @@ export default {
       jsonld: {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
-        "name": "PRIDE CONCRETE LIFTING",
+        "image": "https://www.prideconcretelifting.com/..assets/img/pride-lifting-logo.jpg"
+        "name": "Pride Concrete Lifting",
         "email": "contact@prideconcretelifting.com",
-        "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection."
+        "description": "Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection in Dallas & Fort Worth."
       }
     }
   },
   metaInfo() {
     return {
+      title: 'Pride Concrete Lifting and Repair in Dallas / Fort Worth',
+      meta: [
+        {
+          name: "description",
+          content: 'Concrete Foam Lifting and Repair in Dallas / Fort Worth - Driveway, Pools, Warehouses, and Other Concrete Leveling by Industry Professionals.'
+        },
       script: [{
         innerHTML: JSON.stringify(this.jsonld),
         type: 'application/ld+json'
