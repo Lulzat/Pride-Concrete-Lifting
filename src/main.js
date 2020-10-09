@@ -12,4 +12,10 @@ export default function (Vue, { router, head, isClient }) {
     type: 'image/png',
     href: 'favicon.png'
   })
+
+  head.meta.push({
+    key: 'description',
+    name: 'description',
+    content: 'Concrete Lifting and Repair and Soil Stabilization for Driveways Repair, Pool Deck Lifting with foam injection in Dallas & Fort Worth.'
+})
 }
