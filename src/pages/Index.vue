@@ -267,7 +267,7 @@ export default {
 
 <style>
     .header {
-      background: url("/img/hero-image.jpg"), linear-gradient(135deg, rgba(245, 247, 250, 1) 0%, #fff 20%, #fff 80%, rgba(245, 247, 250, 1) 100%);
+      background: url("/img/eagle-has-landed.jpg"), linear-gradient(135deg, rgba(245, 247, 250, 1) 0%, #fff 20%, #fff 80%, rgba(245, 247, 250, 1) 100%);
       background-position: calc(75% - 75px) 75%;
     }
 
