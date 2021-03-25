@@ -103,7 +103,7 @@
             <div class="w-full md:w-4/12 px-4 mt-8 mr-auto ml-auto">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-white">
-                <img alt="Concrete Lifting Jobs Big and Small" src=img/cross_section_concrete_and_foam.png"
+                <img alt="Concrete Lifting Jobs Big and Small" src="img/cross_section_concrete_and_foam.png"
                   class="w-full align-middle rounded-t-lg" />
                 <blockquote class="relative p-8 mb-4">
                   <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
